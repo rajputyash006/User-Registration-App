@@ -24,8 +24,6 @@ public class Organization {
 	
 	private String organizationEmail;
 	
-	private String organizationGstNumber;
-	
 	private String organizationAddress;
 
 }

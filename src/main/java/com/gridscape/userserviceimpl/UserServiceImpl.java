@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.gridscape.exceptions.NoUserFoundException;
@@ -26,7 +25,8 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public User changeOrganization(Organization org) throws NoUserFoundException {
-		Optional<User> userOpt=uRepo.findByEmailId(SecurityContextHolder.getContext().getAuthentication().getName());
+//		Optional<User> userOpt=uRepo.findByEmailId(SecurityContextHolder.getContext().getAuthentication().getName());
+		Optional<User> userOpt=null;
 		if(userOpt.isPresent()) {
 			
 			User user=userOpt.get();

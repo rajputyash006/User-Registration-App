@@ -1,5 +1,6 @@
 package com.gridscape.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.Column;
@@ -26,6 +27,7 @@ public class User {
 	
 	private String userImage;
 	
+	@JsonIgnore
 	private String role;
 	
 	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)

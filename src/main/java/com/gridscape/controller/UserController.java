@@ -3,6 +3,7 @@ package com.gridscape.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -23,7 +24,12 @@ public class UserController {
 	@Autowired
 	private UserService uSer;
 	
-	@PostMapping("/registerUser")
+	@GetMapping("/registerUser")
+	public ModelAndView registerUser() {
+		return new ModelAndView("index");
+	}
+	
+	@PostMapping("/saveUser")
 	public ModelAndView registerUser(@RequestBody User user) {
 		User regUser = uSer.registerUser(user);
 		ModelAndView mv=new ModelAndView("View_User", "registerUser", regUser);
